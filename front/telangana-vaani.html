@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TelanganaVaani – మన గొంతు, మన బాస</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tiro+Telugu&family=Bebas+Neue&family=DM+Mono:ital@0;1&family=Syne:wght@400;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --saffron: #FF6B00;
+      --deep-saffron: #E85500;
+      --gold: #FFB800;
+      --cream: #FFF8EE;
+      --earth: #3B1F0A;
+      --mud: #7A4420;
+      --leaf: #2D6A1F;
+      --sky: #1A3A6B;
+      --white: #FFFDF9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--earth);
+      color: var(--cream);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* Decorative background circles */
+    .bg-circle {
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .bg-circle-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--saffron);
+      top: -200px;
+      right: -150px;
+      animation: drift 20s ease-in-out infinite alternate;
+    }
+
+    .bg-circle-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--gold);
+      bottom: -100px;
+      left: -100px;
+      animation: drift 15s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(30px, 20px) scale(1.05);
+      }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 4px 40px rgba(255, 107, 0, 0.8);
+      }
+    }
+
+    .logo-text {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 32px;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-sub {
+      font-family: 'Tiro Telugu', serif;
+      font-size: 10px;
+      color: rgba(255, 248, 238, 0.5);
+      letter-spacing: 1px;
+      display: block;
+      margin-top: -4px;
+    }
+
+    .badge {
+      background: rgba(255, 107, 0, 0.15);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 60px 40px 40px;
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--saffron);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(52px, 8vw, 96px);
+      letter-spacing: 4px;
+      line-height: 0.95;
+      background: linear-gradient(135deg, var(--cream) 40%, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .hero-telugu {
+      font-family: 'Tiro Telugu', serif;
+      font-size: clamp(18px, 3vw, 28px);
+      color: rgba(255, 248, 238, 0.7);
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      font-size: 15px;
+      color: rgba(255, 248, 238, 0.5);
+      line-height: 1.7;
+    }
+
+    /* ===== SLANG PILLS ===== */
+    .slang-pills {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      animation: fadeInUp 0.8s 0.2s ease both;
+      opacity: 0;
+    }
+
+    .pill {
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.25);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--gold);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pill:hover {
+      background: rgba(255, 107, 0, 0.25);
+      border-color: var(--saffron);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    /* ===== MAIN CARD ===== */
+    .main-card {
+      position: relative;
+      z-index: 10;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      animation: fadeInUp 0.8s 0.15s ease both;
+      opacity: 0;
+    }
+
+    .card {
+      background: rgba(59, 31, 10, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 248, 238, 0.05);
+    }
+
+    /* API Key section */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--saffron);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .api-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    input[type="password"],
+    input[type="text"],
+    textarea,
+    select {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      border-radius: 12px;
+      color: var(--cream);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.15);
+    }
+
+    select option {
+      background: var(--earth);
+    }
+
+    .btn-save {
+      background: rgba(255, 107, 0, 0.2);
+      border: 1px solid rgba(255, 107, 0, 0.4);
+      color: var(--saffron);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .btn-save:hover {
+      background: rgba(255, 107, 0, 0.35);
+      border-color: var(--saffron);
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255, 107, 0, 0.15);
+      margin: 28px 0;
+    }
+
+    /* Settings row */
+    .settings-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Textarea */
+    .text-area-wrap {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    textarea {
+      resize: none;
+      height: 140px;
+      line-height: 1.7;
+      font-size: 14px;
+      font-family: 'Tiro Telugu', serif;
+    }
+
+    .char-count {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: rgba(255, 248, 238, 0.3);
+    }
+
+    /* Sliders */
+    .sliders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .slider-group label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(255, 248, 238, 0.5);
+      margin-bottom: 8px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .slider-val {
+      color: var(--gold) !important;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 107, 0, 0.2);
+      outline: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--saffron);
+      box-shadow: 0 0 8px rgba(255, 107, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.3);
+    }
+
+    /* Generate button */
+    .btn-generate {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 22px;
+      letter-spacing: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+      box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4);
+    }
+
+    .btn-generate::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-generate:hover::before {
+      left: 100%;
+    }
+
+    .btn-generate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 107, 0, 0.6);
+    }
+
+    .btn-generate:active {
+      transform: translateY(0);
+    }
+
+    .btn-generate:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Loading state */
+    .loading-dots {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .loading-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+      animation: bounce 0.9s ease-in-out infinite;
+    }
+
+    .loading-dots span:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .loading-dots span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+      }
+
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* ===== AUDIO PLAYER ===== */
+    .audio-section {
+      margin-top: 28px;
+      display: none;
+      animation: fadeInUp 0.5s ease both;
+    }
+
+    .audio-section.visible {
+      display: block;
+    }
+
+    .audio-card {
+      background: rgba(255, 107, 0, 0.08);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .audio-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .audio-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--saffron);
+      text-transform: uppercase;
+    }
+
+    .waveform-wrap {
+      position: relative;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 0 12px;
+    }
+
+    .wave-bar {
+      flex: 1;
+      max-width: 4px;
+      border-radius: 2px;
+      background: var(--saffron);
+      transition: height 0.3s ease;
+      opacity: 0.7;
+    }
+
+    .wave-bar.playing {
+      animation: wave-anim 0.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes wave-anim {
+      from {
+        transform: scaleY(0.3);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    .audio-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-play {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--saffron);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: white;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(255, 107, 0, 0.4);
+    }
+
+    .btn-play:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(255, 107, 0, 0.6);
+    }
+
+    .progress-wrap {
+      flex: 1;
+    }
+
+    .progress-bar-bg {
+      height: 4px;
+      background: rgba(255, 107, 0, 0.2);
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--saffron);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.1s;
+    }
+
+    .time-display {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: rgba(255, 248, 238, 0.5);
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn-download {
+      background: rgba(255, 107, 0, 0.15);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      color: var(--gold);
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-download:hover {
+      background: rgba(255, 107, 0, 0.3);
+      border-color: var(--saffron);
+      color: var(--cream);
+    }
+
+    /* ===== STATUS ===== */
+    .status-msg {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-msg.show {
+      display: flex;
+    }
+
+    .status-msg.error {
+      background: rgba(220, 38, 38, 0.15);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+      color: #FCA5A5;
+    }
+
+    .status-msg.success {
+      background: rgba(45, 106, 31, 0.2);
+      border: 1px solid rgba(45, 106, 31, 0.4);
+      color: #86EFAC;
+    }
+
+    .status-msg.info {
+      background: rgba(26, 58, 107, 0.3);
+      border: 1px solid rgba(26, 58, 107, 0.5);
+      color: #93C5FD;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid rgba(255, 107, 0, 0.1);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: rgba(255, 248, 238, 0.25);
+      letter-spacing: 2px;
+    }
+
+    footer span {
+      color: var(--saffron);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      .hero {
+        padding: 40px 20px 30px;
+      }
+
+      .main-card {
+        padding: 0 16px 40px;
+      }
+
+      .card {
+        padding: 24px 20px;
+      }
+
+      .settings-row {
+        grid-template-columns: 1fr;
+      }
+
+      .sliders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-text {
+        font-size: 24px;
+      }
+    }
+
+    /* Model Badge */
+    .model-badge-wrap {
+      margin-bottom: 24px;
+    }
+
+    .model-name-badge {
+      background: rgba(255, 107, 0, 0.1);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #86EFAC;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #86EFAC;
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-circle bg-circle-1"></div>
+  <div class="bg-circle bg-circle-2"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-group">
+      <div class="logo-icon">🎙</div>
+      <div>
+        <div class="logo-text">TelanganaVaani</div>
+        <span class="logo-sub">మన గొంతు, మన బాస</span>
+      </div>
+    </div>
+    <div class="badge">Team 0x0D</div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-kicker">Cultural AI Voice Engine</p>
+    <h1 class="hero-title">మన వాయిస్</h1>
+    <p class="hero-telugu">Telangana Dialect · Authentic Slang · Real Emotion</p>
+    <p class="hero-desc">Not just text-to-speech. A culturally aware voice that speaks with the heart of Telangana —
+      బావ, బైగన్, and beyond.</p>
+  </div>
+
+  <!-- SLANG PILLS -->
+  <div class="slang-pills">
+    <span class="pill" onclick="insertText('ఏం బావా, ఎట్లున్నావ్?')">ఏం బావా 👋</span>
+    <span class="pill" onclick="insertText('అరే యార్, నీకు బైగన్ తెలుసా?')">బైగన్ 🍆</span>
+    <span class="pill" onclick="insertText('పోరా, పోయి చదువు!')">పోరా 😤</span>
+    <span class="pill" onclick="insertText('గుండె నిండుగా ఉంది బావా, మన ఊరు మన ఊరే!')">మన ఊరు 🏡</span>
+    <span class="pill" onclick="insertText('అరే దోస్తు, లైన్ లో ఉండు!')">దోస్తు 🤝</span>
+    <span class="pill" onclick="insertText('ఇది నిజమే! మన తెలంగాణ బాస అలాంటిది!')">తెలంగాణ 🌾</span>
+    <span class="pill"
+      onclick="insertText('Em bava? Etlunnave? Mana ooru mastu gundhe kada? Baigan ki em telusu mana sangatulu!')">Bava
+      Check-in 🤙</span>
+    <span class="pill"
+      onclick="insertText('Arei dosthu, light teesko yar! Antha lollie enduku? Prashantham ga undu.')">Dosthu Warning
+      ✋</span>
+    <span class="pill"
+      onclick="insertText('Telangana vaani ante mana gontu, mana basa! Idi evvariki rani yasa, mana gundelo unde aasha.')">Pride
+      Dialect 🎙️</span>
+  </div>
+
+  <!-- MAIN CARD -->
+  <div class="main-card">
+    <div class="card">
+
+
+      <!-- AI MODEL -->
+      <p class="section-label">AI Voice Model</p>
+      <div class="model-badge-wrap">
+        <div class="model-name-badge">
+          <span class="pulse-dot"></span>
+          TelanganaVaani-v1 (Standard)
+        </div>
+      </div>
+
+      <!-- TEXT INPUT -->
+      <p class="section-label">మీ టెక్స్ట్ ఇక్కడ టైప్ చేయండి</p>
+      <div class="text-area-wrap">
+        <textarea id="textInput"
+          placeholder="Type your Telangana dialect text here... e.g., ఏం బావా, ఎట్లున్నావ్? మన ఊరు చాలా బావుంది!"
+          maxlength="5000" oninput="updateChar()"></textarea>
+        <span class="char-count" id="charCount">0 / 5000</span>
+      </div>
+
+      <!-- SLIDERS -->
+      <p class="section-label">Voice Controls</p>
+      <div class="sliders-grid">
+        <div class="slider-group">
+          <label>Stability <span class="slider-val" id="stabVal">0.5</span></label>
+          <input type="range" id="stability" min="0" max="1" step="0.01" value="0.5"
+            oninput="document.getElementById('stabVal').textContent = this.value" />
+        </div>
+        <div class="slider-group">
+          <label>Similarity <span class="slider-val" id="simVal">0.75</span></label>
+          <input type="range" id="similarity" min="0" max="1" step="0.01" value="0.75"
+            oninput="document.getElementById('simVal').textContent = this.value" />
+        </div>
+        <div class="slider-group">
+          <label>Style <span class="slider-val" id="styleVal">0.0</span></label>
+          <input type="range" id="style" min="0" max="1" step="0.01" value="0.0"
+            oninput="document.getElementById('styleVal').textContent = this.value" />
+        </div>
+      </div>
+
+      <!-- GENERATE BUTTON -->
+      <button class="btn-generate" id="genBtn" onclick="generateSpeech()">
+        🎙 GENERATE TELANGANA VOICE
+      </button>
+
+      <!-- STATUS -->
+      <div class="status-msg" id="statusMsg"></div>
+
+      <!-- AUDIO PLAYER -->
+      <div class="audio-section" id="audioSection">
+        <div class="audio-card">
+          <div class="audio-header">
+            <span class="audio-title">🔊 Output Audio</span>
+            <button class="btn-download" id="downloadBtn">↓ DOWNLOAD</button>
+          </div>
+          <div class="waveform-wrap" id="waveform">
+            <!-- wave bars injected by JS -->
+          </div>
+          <div class="audio-controls">
+            <button class="btn-play" id="playBtn" onclick="togglePlay()">▶</button>
+            <div class="progress-wrap">
+              <div class="progress-bar-bg" onclick="seekAudio(event)">
+                <div class="progress-bar-fill" id="progressFill"></div>
+              </div>
+              <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span id="totalTime">0:00</span>
+              </div>
+            </div>
+          </div>
+          <audio id="audioPlayer" style="display:none;"></audio>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    Built with ❤️ by <span>Team 0x0D</span> · TelanganaVaani · AWS AI for Bharat
+  </footer>
+
+  <script>
+    // ========================
+    // INIT
+    // ========================
+    const audio = document.getElementById('audioPlayer');
+    let audioBlob = null;
+
+    // Build waveform bars
+    const waveform = document.getElementById('waveform');
+    for (let i = 0; i < 48; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'wave-bar';
+      bar.style.height = Math.random() * 70 + 10 + '%';
+      waveform.appendChild(bar);
+    }
+
+
+    // ========================
+    // HELPERS
+    // ========================
+    const TV_V1_CONFIG = {
+      apiKey: 'sk_49a3f531daed7d4e05e5486f72be829ef2f8d93ed286cc1e', // ElevenLabs API Key
+      voiceId: '21m00Tcm4TlvDq8ikWAM',
+      modelId: 'eleven_multilingual_v2'
+    };
+
+    function insertText(t) {
+      const ta = document.getElementById('textInput');
+      ta.value = t;
+      updateChar();
+      ta.focus();
+    }
+
+    function updateChar() {
+      const v = document.getElementById('textInput').value.length;
+      document.getElementById('charCount').textContent = v + ' / 5000';
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('statusMsg');
+      el.textContent = msg;
+      el.className = 'status-msg show ' + type;
+    }
+
+    function hideStatus() {
+      document.getElementById('statusMsg').className = 'status-msg';
+    }
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60);
+      return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    }
+
+    // ========================
+    // GENERATE SPEECH
+    // ========================
+
+    async function generateSpeech() {
+      const text = document.getElementById('textInput').value.trim();
+      const stability = parseFloat(document.getElementById('stability').value);
+      const similarity = parseFloat(document.getElementById('similarity').value);
+      const style = parseFloat(document.getElementById('style').value);
+
+      if (!TV_V1_CONFIG.apiKey || TV_V1_CONFIG.apiKey.includes('ADD_YOUR_KEY')) {
+        showStatus('⚠️ Model configuration incomplete. Please contact support.', 'error');
+        return;
+      }
+      if (!text) { showStatus('⚠️ Please enter some text to convert.', 'error'); return; }
+
+      const btn = document.getElementById('genBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="loading-dots"><span></span><span></span><span></span></span>';
+      hideStatus();
+      showStatus('⏳ Generating Telangana voice...', 'info');
+
+
+      try {
+        const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${TV_V1_CONFIG.voiceId}`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'audio/mpeg',
+            'Content-Type': 'application/json',
+            'xi-api-key': TV_V1_CONFIG.apiKey
+          },
+          body: JSON.stringify({
+            text: text,
+            model_id: TV_V1_CONFIG.modelId,
+            voice_settings: {
+              stability: stability,
+              similarity_boost: similarity,
+              style: style,
+              use_speaker_boost: true
+            }
+          })
+        });
+
+        if (!response.ok) {
+          const err = await response.json().catch(() => ({}));
+          throw new Error(err.detail?.message || `API error ${response.status}`);
+        }
+
+        audioBlob = await response.blob();
+        const url = URL.createObjectURL(audioBlob);
+        audio.src = url;
+
+        // Setup player
+        audio.onloadedmetadata = () => {
+          document.getElementById('totalTime').textContent = formatTime(audio.duration);
+        };
+
+        audio.ontimeupdate = () => {
+          const pct = (audio.currentTime / audio.duration) * 100 || 0;
+          document.getElementById('progressFill').style.width = pct + '%';
+          document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
+        };
+
+        audio.onended = () => {
+          document.getElementById('playBtn').textContent = '▶';
+          document.querySelectorAll('.wave-bar').forEach(b => b.classList.remove('playing'));
+        };
+
+        // Download
+        document.getElementById('downloadBtn').onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'telangana-vaani.mp3';
+          a.click();
+        };
+
+        document.getElementById('audioSection').classList.add('visible');
+        showStatus('✅ Voice generated successfully! రెడీ!', 'success');
+        audio.play();
+        document.getElementById('playBtn').textContent = '⏸';
+        animateWave(true);
+
+      } catch (e) {
+        showStatus('❌ ' + e.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '🎙 GENERATE TELANGANA VOICE';
+      }
+    }
+
+    // ========================
+    // PLAYER CONTROLS
+    // ========================
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        document.getElementById('playBtn').textContent = '⏸';
+        animateWave(true);
+      } else {
+        audio.pause();
+        document.getElementById('playBtn').textContent = '▶';
+        animateWave(false);
+      }
+    }
+
+    function seekAudio(e) {
+      const bar = e.currentTarget;
+      const rect = bar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    }
+
+    function animateWave(on) {
+      document.querySelectorAll('.wave-bar').forEach((b, i) => {
+        if (on) {
+          b.classList.add('playing');
+          b.style.animationDelay = (i * 0.04) + 's';
+          b.style.animationDuration = (0.5 + Math.random() * 0.6) + 's';
+        } else {
+          b.classList.remove('playing');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
