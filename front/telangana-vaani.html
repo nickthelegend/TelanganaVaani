@@ -367,7 +367,7 @@
     /* Sliders */
     .sliders-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-bottom: 24px;
     }
@@ -859,6 +859,11 @@
           <input type="range" id="style" min="0" max="1" step="0.01" value="0.0"
             oninput="document.getElementById('styleVal').textContent = this.value" />
         </div>
+        <div class="slider-group">
+          <label>Voice Speed <span class="slider-val" id="speedVal">1.0</span></label>
+          <input type="range" id="speed" min="0.5" max="1.5" step="0.05" value="1.0"
+            oninput="updateSpeed(this.value)" />
+        </div>
       </div>
 
       <!-- GENERATE BUTTON -->
@@ -956,6 +961,13 @@
       return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
     }
 
+    function updateSpeed(v) {
+      document.getElementById('speedVal').textContent = v + 'x';
+      if (audio) {
+        audio.playbackRate = parseFloat(v);
+      }
+    }
+
     // ========================
     // GENERATE SPEECH
     // ========================
@@ -1034,6 +1046,11 @@
 
         document.getElementById('audioSection').classList.add('visible');
         showStatus('✅ Voice generated successfully! రెడీ!', 'success');
+
+        // Apply current speed
+        const currentSpeed = document.getElementById('speed').value;
+        audio.playbackRate = parseFloat(currentSpeed);
+
         audio.play();
         document.getElementById('playBtn').textContent = '⏸';
         animateWave(true);
