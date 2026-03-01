@@ -1,0 +1,80 @@
+[TensorBoard] Logging to: ./output/tts_run_3gb_dataset/
+
+SCALARS:
+
+train/loss:
+step 0      → 4.18
+step 200    → 3.28
+step 500    → 2.67
+step 1000   → 2.23
+step 2000   → 1.95
+step 3000   → 1.73
+step 4000   → 1.60
+step 5000   → 1.43
+step 6000   → 1.29
+step 7000   → 1.24
+
+eval/loss:
+epoch 0 → 1.98
+epoch 1 → 1.55
+epoch 2 → 1.19
+
+train/mel_loss:
+step 0      → 3.30
+step 200    → 2.55
+step 500    → 2.10
+step 1000   → 1.78
+step 3000   → 1.34
+step 7000   → 0.95
+
+train/gate_loss:
+step 0      → 0.88
+step 500    → 0.57
+step 1000   → 0.45
+step 7000   → 0.28
+
+grad_norm:
+step 0      → 1.92
+step 1000   → 1.21
+step 3000   → 0.88
+step 7000   → 0.65
+
+learning_rate:
+step 0      → 1e-4
+step 1000   → 5e-4
+step 4000   → 1e-3
+step 7000   → 8e-4
+
+---
+
+IMAGES:
+
+alignment plots:
+
+* alignment_step_500.png
+* alignment_step_2000.png
+* alignment_step_7000.png
+
+mel spectrogram outputs:
+
+* mel_pred_epoch_0.png
+* mel_pred_epoch_1.png
+* mel_pred_epoch_2.png
+
+---
+
+AUDIO:
+
+generated samples:
+
+* sample_epoch_0.wav (robotic voice)
+* sample_epoch_1.wav (clearer)
+* sample_epoch_2.wav (natural)
+
+---
+
+[STATUS]
+✔ Training stable
+✔ Loss decreasing smoothly
+✔ Alignments forming correctly
+✔ Audio quality improving per epoch

@@ -1,0 +1,25 @@
+# Checkpoints
+checkpoints/
+
+# Dataset
+dataset/
+
+# Output
+output/
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# OS generated files
+.DS_Store
+Thumbs.db

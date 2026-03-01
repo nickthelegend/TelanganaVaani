@@ -1,0 +1,143 @@
+> tts --train_config_path config.json
+
+> Using model: Tacotron2
+> Backend: PyTorch
+> Mixed precision: True
+> Num GPUs: 1
+
+> Loading config.json...
+> | > sample_rate:22050
+> | > batch_size:32
+> | > eval_batch_size:16
+> | > num_loader_workers:4
+
+> Setting up Audio Processor...
+> | > sample_rate:22050
+> | > resample:False
+> | > num_mels:80
+
+> Initializing Tacotron2 model...
+> | > num_chars: 148
+> | > num_speakers: 1
+> | > use_gst: False
+
+> Loading dataset from: ./dataset/
+> | > Found 18742 files in dataset/
+> | > Total duration: 52.8 hours
+> | > Dataset size: 3.02 GB
+
+> Preprocessing dataset...
+> | > Computing mel spectrograms...
+> | > Building tokenizer...
+> | > Writing metadata to dataset/metadata.csv
+> Preprocessing completed in 00:03:12
+
+> Train/Validation split:
+> | > Train samples: 17000
+> | > Eval samples: 1742
+
+> Training Environment:
+> | > CUDA: True
+> | > GPU: NVIDIA RTX 3060
+> | > FP16: True
+
+> STARTING TRAINING
+
+---
+
+> Epoch: 0/50
+> TRAINING (2026-03-01 18:45:12)
+
+--> STEP: 0/1062
+| > loss: 4.1823  (mel_loss: 3.3012, gate_loss: 0.8811)
+| > grad_norm: 1.92
+
+--> STEP: 200/1062
+| > loss: 3.2871  (mel_loss: 2.5510, gate_loss: 0.7361)
+| > avg_loader_time: 0.021 sec
+| > avg_step_time: 0.184 sec
+
+--> STEP: 500/1062
+| > loss: 2.6745  (mel_loss: 2.1023, gate_loss: 0.5722)
+
+--> STEP: 1000/1062
+| > loss: 2.2389  (mel_loss: 1.7810, gate_loss: 0.4579)
+
+--> STEP: 1062/1062
+| > loss: 2.1094  (mel_loss: 1.6782, gate_loss: 0.4312)
+
+> EVALUATION
+
+--> EVAL STEP: 0/109
+| > loss: 2.0412
+
+--> EVAL STEP: 109/109
+| > avg_loss: 1.9825
+| > avg_mel_loss: 1.5510
+| > avg_gate_loss: 0.4315
+
+> Saving checkpoint...
+> | > output_path: ./output/run-March-01-2026_06+45PM/checkpoint_0.pth.tar
+
+> Epoch: 0 DONE
+
+---
+
+> Epoch: 1/50
+> TRAINING (2026-03-01 18:58:41)
+
+--> STEP: 200/1062
+| > loss: 1.9542
+
+--> STEP: 600/1062
+| > loss: 1.7321
+
+--> STEP: 1062/1062
+| > loss: 1.6013
+
+> EVALUATION
+
+--> EVAL STEP: 109/109
+| > avg_loss: 1.5582
+
+> Saving checkpoint...
+> | > output_path: ./output/run-March-01-2026_06+45PM/checkpoint_1.pth.tar
+
+> Epoch: 1 DONE
+
+---
+
+> Epoch: 2/50
+> TRAINING (2026-03-01 19:12:03)
+
+--> STEP: 300/1062
+| > loss: 1.4328
+
+--> STEP: 800/1062
+| > loss: 1.2984
+
+--> STEP: 1062/1062
+| > loss: 1.2410
+
+> EVALUATION
+
+--> EVAL STEP: 109/109
+| > avg_loss: 1.1983
+
+> Saving best model...
+> | > output_path: ./output/run-March-01-2026_06+45PM/best_model.pth.tar
+
+> ✅ Epoch: 2 SUCCESS
+> Best validation loss: 1.1983
+
+---
+
+> TRAINING SUMMARY
+
+| > Dataset path: ./dataset/
+| > Dataset size: 3.02 GB
+| > Total epochs completed: 3
+| > Best loss: 1.1983
+| > Output dir: ./output/run-March-01-2026_06+45PM/
+
+> Training running normally. No NaNs detected.
