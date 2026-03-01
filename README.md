@@ -4,7 +4,10 @@
 ![Dialect](https://img.shields.io/badge/Dialect-Telangana-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Optimized-blue?style=for-the-badge)
 
+![TelanganaVaani Interface](images/1.png)
+
 **TelanganaVaani** is a state-of-the-art AI text-to-speech engine specifically engineered to capture the unique cadence, emotion, and cultural nuances of the Telangana dialect. Unlike generic TTS models, TelanganaVaani-v1 understands the "soul" of the language—from the warm "Bava" check-ins to the iconic "Baigan" slang.
+
 
 ---
 
@@ -35,6 +38,7 @@ TelanganaVaani/
 │   └── romanized_tests.md      # Curated test cases for dialect validation
 ├── checkpoints/                # Model weight optimization data
 ├── dataset/                    # Reference linguistic datasets
+├── images/                     # Media and screenshots
 └── README.md                   # This overview
 ```
 
